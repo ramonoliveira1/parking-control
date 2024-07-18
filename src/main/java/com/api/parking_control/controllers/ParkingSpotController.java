@@ -24,9 +24,14 @@ public class ParkingSpotController {
 
     @PostMapping
     public ResponseEntity<Object> saveParkingSpot(@RequestBody @Valid ParkingSpotDto parkingSpotDto) {
-        var parkingSpotModel = new ParkingSpotModel();
-        BeanUtils.copyProperties(parkingSpotDto, parkingSpotModel);
-        parkingSpotModel.setRegistrationDate(LocalDateTime.now(ZoneId.of("UTC")));
-        return ResponseEntity.status(HttpStatus.CREATED).body(parkingSpotService.save(parkingSpotModel));
+        try {
+            ParkingSpotModel parkingSpotModel = new ParkingSpotModel(parkingSpotDto);
+            parkingSpotModel.setRegistrationDate(LocalDateTime.now(ZoneId.of("UTC")));
+            ParkingSpotModel savedModel = parkingSpotService.save(parkingSpotModel);
+            return ResponseEntity.status(HttpStatus.CREATED).body(savedModel);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred while saving the parking spot.");
+        }
     }
 }

@@ -23,67 +23,82 @@ public class ParkingSpotDto {
     @NotBlank
     private String block;
 
-    public @NotBlank String getParkingSpotNumber() {
+    public String getParkingSpotNumber() {
         return parkingSpotNumber;
     }
 
-    public void setParkingSpotNumber(@NotBlank String parkingSpotNumber) {
+    public void setParkingSpotNumber(String parkingSpotNumber) {
         this.parkingSpotNumber = parkingSpotNumber;
     }
 
-    public @NotBlank @Size(max = 7) String getLicensePlateCar() {
+    public String getLicensePlateCar() {
         return licensePlateCar;
     }
 
-    public void setLicensePlateCar(@NotBlank @Size(max = 7) String licensePlateCar) {
+    public void setLicensePlateCar(String licensePlateCar) {
         this.licensePlateCar = licensePlateCar;
     }
 
-    public @NotBlank String getBrandCar() {
+    public String getBrandCar() {
         return brandCar;
     }
 
-    public void setBrandCar(@NotBlank String brandCar) {
+    public void setBrandCar(String brandCar) {
         this.brandCar = brandCar;
     }
 
-    public @NotBlank String getModelCar() {
+    public String getModelCar() {
         return modelCar;
     }
 
-    public void setModelCar(@NotBlank String modelCar) {
+    public void setModelCar(String modelCar) {
         this.modelCar = modelCar;
     }
 
-    public @NotBlank String getColorCar() {
+    public String getColorCar() {
         return colorCar;
     }
 
-    public void setColorCar(@NotBlank String colorCar) {
+    public void setColorCar(String colorCar) {
         this.colorCar = colorCar;
     }
 
-    public @NotBlank String getResponsibleName() {
+    public String getResponsibleName() {
         return responsibleName;
     }
 
-    public void setResponsibleName(@NotBlank String responsibleName) {
+    public void setResponsibleName(String responsibleName) {
         this.responsibleName = responsibleName;
     }
 
-    public @NotBlank String getApartment() {
+    public String getApartment() {
         return apartment;
     }
 
-    public void setApartment(@NotBlank String apartment) {
+    public void setApartment(String apartment) {
         this.apartment = apartment;
     }
 
-    public @NotBlank String getBlock() {
+    public String getBlock() {
         return block;
     }
 
-    public void setBlock(@NotBlank String block) {
+    public void setBlock(String block) {
         this.block = block;
     }
+
+    @Override
+    public String toString() {
+        return "ParkingSpotDto{" +
+                "parkingSpotNumber='" + parkingSpotNumber + '\'' +
+                ", licensePlateCar='" + licensePlateCar + '\'' +
+                ", brandCar='" + brandCar + '\'' +
+                ", modelCar='" + modelCar + '\'' +
+                ", colorCar='" + colorCar + '\'' +
+                ", responsibleName='" + responsibleName + '\'' +
+                ", apartment='" + apartment + '\'' +
+                ", block='" + block + '\'' +
+                '}';
+    }
+
 }
